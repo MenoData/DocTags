@@ -11,4 +11,4 @@ This small library mainly serves for improvements of the JavaDoc of Time4J but m
 
 - doctags.concurrency
 - doctags.spec
-- exclude
+- doctags.exclude
