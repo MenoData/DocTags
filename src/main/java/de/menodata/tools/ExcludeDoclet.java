@@ -25,6 +25,10 @@ import java.util.List;
 @SuppressWarnings({"rawtypes", "unchecked"})
 public class ExcludeDoclet {
 
+    //~ Statische Felder/Initialisierungen --------------------------------
+
+    private static final String NAME = "doctags.exclude";
+
     //~ Methoden ----------------------------------------------------------
 
     public static boolean validOptions(
@@ -59,13 +63,13 @@ public class ExcludeDoclet {
         if (doc instanceof ProgramElementDoc) {
             PackageDoc pd = ((ProgramElementDoc) doc).containingPackage();
 
-            if (pd.tags("exclude").length > 0) {
+            if (pd.tags(NAME).length > 0) {
                 return true;
             }
 
         }
 
-        return doc.tags("exclude").length > 0;
+        return doc.tags(NAME).length > 0;
 
     }
 
@@ -90,9 +94,7 @@ public class ExcludeDoclet {
             Object[] array = (Object[]) obj;
             List list = new ArrayList(array.length);
 
-            for (int i = 0; i < array.length; i++) {
-                Object entry = array[i];
-
+            for (Object entry : array) {
                 if (
                     (entry instanceof Doc)
                     && exclude((Doc) entry)
