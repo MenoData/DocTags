@@ -109,16 +109,16 @@ public class ConcurrencyTaglet
     private static String translate(String word) {
         String w = word.trim();
 
-        if (w.equals("<immutable>")) {
+        if (w.equals("{immutable}")) {
             return "This class is immutable and "
                 + "can be used by multiple threads in parallel.";
-        } else if (w.equals("<threadsafe>")) {
+        } else if (w.equals("{threadsafe}")) {
             return "This class is thread-safe and "
                 + "can be used by multiple threads in parallel.";
-        } else if (w.equals("<stateless>")) {
+        } else if (w.equals("{stateless}")) {
             return "This class is stateless and "
                 + "can be used by multiple threads in parallel.";
-        } else if (w.equals("<mutable>")) {
+        } else if (w.equals("{mutable}")) {
             return "This class is mutable and "
                 + "hence intended for use in a single thread only.";
         } else {
